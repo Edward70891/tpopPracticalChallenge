@@ -1,22 +1,24 @@
-import java.util.ArrayList;
 import java.util.List;
 
-public class Envelop {
-	private ArrayList<Point> points;
+public abstract class Envelop {
+	protected List<Point> points;
+	protected List<Bar> barStaging;
 	
-	public Envelop() {
-		
-	}
 	public Envelop(List<Bar> bars) {
 		this.addBars(bars);
 	}
 	
 	public void addBars(List<Bar> bars) {
-		
+		barStaging.addAll(bars);
 	}
 	
 	public void addBar(Bar singleBar) {
-		List<Bar> singleBarList = new ArrayList<Bar>();
-		this.addBars(singleBarList);
+		barStaging.add(singleBar);
 	}
+	
+	public abstract void update();
+	
+	//public String toString() {
+	//	String toReturn = "";
+	//}
 }
