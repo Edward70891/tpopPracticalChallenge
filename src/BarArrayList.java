@@ -13,7 +13,7 @@ public class BarArrayList {
 			System.out.println("Please enter '1' to enter a bar, or '2' in order to stop making bars");
 			int input = 0;
 			try {
-				input = keyboard.nextInt();
+				input = Integer.parseInt(keyboard.nextLine());
 			} catch (Exception e) {
 				System.out.println("Invalid input");
 				continue;
@@ -22,7 +22,11 @@ public class BarArrayList {
 				while (true) {
 					System.out.println("Please enter the left value: ");
 					try {
-						left = keyboard.nextInt();
+						left = Integer.parseInt(keyboard.nextLine());
+						if (left < 0) {
+							System.out.println("Pleae enter a value greater than 0");
+							continue;
+						}
 					}catch (Exception e) {
 						System.out.println("Invalid input");
 						continue;
@@ -32,7 +36,11 @@ public class BarArrayList {
 				while (true) {
 					System.out.println("Please enter the right value: ");
 					try {
-						right = keyboard.nextInt();
+						right = Integer.parseInt(keyboard.nextLine());
+						if (right <= left) {
+							System.out.println("Please enter a value greater than "+left);
+							continue;
+						}
 					}catch (Exception e) {
 						System.out.println("Invalid input");
 						continue;
@@ -42,7 +50,11 @@ public class BarArrayList {
 				while (true) {
 					System.out.println("Please enter the height value: ");
 					try {
-						height = keyboard.nextInt();
+						height = Integer.parseInt(keyboard.nextLine());
+						if (height <= 0) {
+							System.out.println("Please enter a value greater than 0");
+							continue;
+						}
 					}catch (Exception e) {
 						System.out.println("Invalid input");
 						continue;
